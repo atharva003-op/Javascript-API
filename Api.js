@@ -1,14 +1,15 @@
-fetch("https://jsonplaceholder.typicode.com/users")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
+async function getData () {
+    const response = await fetch (
+        "https://dummyjson.com/users"
+    );
 
-        for (let i = 0; i < data.length; i++) {
-            console.log(data[i].name);
-        }
-    })
-    .catch(function (error) {
-        console.log("Error:", error);
+    const data = await response.json();
+
+    data.users.forEach((data, index) => {
+        console.log(`Name ${index + 1} : ${data.firstName} ${data.ip}`);
     });
+
+    //console.log(data);
+}
+
+getData();
