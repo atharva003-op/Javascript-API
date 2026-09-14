@@ -10,22 +10,23 @@ async function getData () {
 
     let choice = 0;
 
-    while (choice != 6) {
+    while (choice != 7) {
         console.log("--- |API| ---");
         console.log("[1].Get names");
         console.log("[2].Get usernames")
         console.log("[3].Get ids");
         console.log("[4].Get email addresses");
         console.log("[5].Get phone no's");
-        console.log("[6].Exit");
+        console.log("[6].Get data in JSON Format");
+        console.log("[7].Exit");
         choice = Number(prompt("Enter choice (1-6) : "));
 
-        if (choice <= 0 || choice > 6) {
+        if (choice <= 0 || choice > 7) {
             console.warn("Invalid choice!\n");
             continue;
         }
 
-        if (choice == 6) {
+        if (choice == 7) {
             console.log("Program Exited Sucessfully!");
             break;
         }
@@ -68,6 +69,10 @@ async function getData () {
                 console.log(`PhoneNo ${index + 1} : ${data.phone}`)
             });
             console.log("\n");
+        }
+
+        else if (choice == 6) {
+            console.log(data);
         }
     }
 }
